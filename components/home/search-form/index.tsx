@@ -57,7 +57,7 @@ export const SearchForm: React.FC = () => {
                 <h1 className="text-2xl font-bold text-center">
                     Tabela Fipe
                 </h1>
-                <p className="text-base font-semibold text-center">
+                <p className="mx-auto w-[70%] md:w-full text-base font-semibold text-center">
                     Consulte o valor de um veículo de forma gratuita.
                 </p>
             </div>
