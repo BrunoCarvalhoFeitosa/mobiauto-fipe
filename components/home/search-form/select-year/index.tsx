@@ -16,16 +16,16 @@ export const SelectYear: React.FC<SelectYearProps> = ({ onSelect }) => {
 
     useEffect(() => {
         if (selectedBrand.codigo && selectedModel.codigo && !selectedYear.codigo) {
-          axios.
-            get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${selectedBrand.codigo}/modelos/${selectedModel.codigo}/anos/${selectedYear.codigo}`)
-            .then((res) => {
-              addYearsData(res.data)
-            })
-            .catch((error) => {
-              console.error("Error fetching model data:", error);
-            });
+            axios.
+                get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${selectedBrand.codigo}/modelos/${selectedModel.codigo}/anos/${selectedYear.codigo}`)
+                .then((res) => {
+                    addYearsData(res.data)
+                })
+                .catch((error) => {
+                    console.error("Error fetching model data:", error);
+                });
         }
-    }, [selectedBrand, selectedModel]);
+    }, [selectedBrand, selectedModel, addYearsData]);
     
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         onSelect(event.target.value);

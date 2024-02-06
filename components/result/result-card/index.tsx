@@ -1,13 +1,44 @@
-"use client";
-import { useEffect } from "react";
+"use client"
+import { useEffect, Suspense } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import { useResult } from "@/hooks/use-result";
 import { Loader2Icon, SearchIcon } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+
+type FetchDataProps = {
+    brandCode: string | null;
+    modelCode: string | null;
+    yearCode: string | null;
+    addResultData: (data: any) => void;
+};
+
+const fetchData = ({ brandCode, modelCode, yearCode, addResultData }: FetchDataProps) => {
+    if (brandCode && modelCode && yearCode) {
+        axios
+            .get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${brandCode}/modelos/${modelCode}/anos/${yearCode}`)
+            .then((res) => {
+                addResultData(res.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao buscar os dados:", error);
+            });
+    }
+};
 
 export const ResultCard = () => {
     const { addResultData, result } = useResult();
+
+    return (
+        <Suspense fallback={<div>Carregando...</div>}>
+            <ResultContent addResultData={addResultData} result={result} />
+        </Suspense>
+    );
+};
+
+const ResultContent = (
+    { addResultData, result }: { addResultData: (data: any) => void; result: any }
+) => {
     const params = useSearchParams();
     const brandCode = params.get("brandCode");
     const brandName = params.get("brandName");
@@ -15,6 +46,10 @@ export const ResultCard = () => {
     const modelName = params.get("modelName");
     const yearCode = params.get("yearCode");
     const yearName = params.get("yearName");
+
+    useEffect(() => {
+        fetchData({ brandCode, modelCode, yearCode, addResultData });
+    }, [params, addResultData]);
 
     if (!brandCode || !modelCode || !yearCode) {
         return (
@@ -35,16 +70,6 @@ export const ResultCard = () => {
             </div>
         );
     }
-
-    useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${brandCode}/modelos/${modelCode}/anos/${yearCode}`)
-          .then((res) => {
-            addResultData(res.data)
-          })
-          .catch((error) => {
-            console.error("Error fetching brand data:", error);
-          });
-    }, [brandCode, modelCode, yearCode]);
     
     return (
         <div className="w-full min-h-[35dvh] md:min-h-[32dvh] xl:min-h-[50dvh] bg-green-200">
@@ -78,4 +103,4 @@ export const ResultCard = () => {
             </div>
         </div>
     );
-}
+};

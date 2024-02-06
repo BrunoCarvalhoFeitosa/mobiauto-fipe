@@ -18,7 +18,7 @@ export const SelectBrand: React.FC<SelectBrandProps> = ({ onSelect }) => {
             .catch((error) => {
                 console.error("Error fetching brand data:", error);
             });
-    }, []);
+    }, [addBrandData]);
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         onSelect(event.target.value);

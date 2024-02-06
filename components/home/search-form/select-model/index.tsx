@@ -22,8 +22,8 @@ export const SelectModel: React.FC<SelectModelProps> = ({ onSelect }) => {
                 .catch((error) => {
                     console.error("Error fetching model data:", error);
                 });
-            }
-    }, [selectedBrand.codigo]);
+        }
+    }, [selectedBrand.codigo, addModelsData]);
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         onSelect(event.target.value);
