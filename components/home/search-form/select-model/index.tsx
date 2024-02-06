@@ -15,7 +15,7 @@ export const SelectModel: React.FC<SelectModelProps> = ({ onSelect }) => {
     useEffect(() => {
         if (selectedBrand.codigo) {
             axios
-                .get(`${process.env.NEXT_PUBLIC_FIPE_BRANDS_URL}/${selectedBrand.codigo}/modelos`)
+                .get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${selectedBrand.codigo}/modelos`)
                 .then((res) => {
                     addModelsData(res.data.modelos);
                 })

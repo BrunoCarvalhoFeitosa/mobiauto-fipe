@@ -17,7 +17,7 @@ export const SelectYear: React.FC<SelectYearProps> = ({ onSelect }) => {
     useEffect(() => {
         if (selectedBrand.codigo && selectedModel.codigo && !selectedYear.codigo) {
           axios.
-            get(`${process.env.NEXT_PUBLIC_FIPE_BRANDS_URL}/${selectedBrand.codigo}/modelos/${selectedModel.codigo}/anos/${selectedYear.codigo}`)
+            get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${selectedBrand.codigo}/modelos/${selectedModel.codigo}/anos/${selectedYear.codigo}`)
             .then((res) => {
               addYearsData(res.data)
             })

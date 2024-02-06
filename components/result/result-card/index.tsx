@@ -37,7 +37,7 @@ export const ResultCard = () => {
     }
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_FIPE_BRANDS_URL}/${brandCode}/modelos/${modelCode}/anos/${yearCode}`)
+        axios.get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}/${brandCode}/modelos/${modelCode}/anos/${yearCode}`)
           .then((res) => {
             addResultData(res.data)
           })

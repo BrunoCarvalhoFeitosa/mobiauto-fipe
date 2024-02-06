@@ -11,7 +11,7 @@ export const SelectBrand: React.FC<SelectBrandProps> = ({ onSelect }) => {
 
     useEffect(() => {
         axios
-            .get(`${process.env.NEXT_PUBLIC_FIPE_BRANDS_URL}`)
+            .get(`${process.env.NEXT_PUBLIC_FIPE_API_BASE_URL}`)
             .then((res) => {
                 addBrandData(res.data);
             })
