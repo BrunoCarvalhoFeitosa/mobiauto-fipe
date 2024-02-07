@@ -38,7 +38,7 @@
 O projeto é foi feito Next.js, Typescript, React Hook Form, Zod, Zustand e TailwindCSS para buscar preço de veículos baseados na tabela Fipe. Foram criadas duas telas, sendo a primeira 3 inputs de seleção, onde no primeiro são preenchidas as marcas de carros presentes na API (https://deividfortuna.github.io/fipe/), ao escolher uma opção, o segundo select é preenchido com os modelos da respectiva marca selecionada e ao escolher um modelo, o terceiro select é preenchido com os anos em que aquele modelo teve produção. Se houver interação do usuário com os três selects, o botão para consultar preço é habilitado para interação, do contrário ele permancerá desabilitado até que haja as interações necessárias. Ao clicar sobre o botão de consulta de preço, o usuário é redirecionado para a página de resultados, e lá conterá o preço do véiculo de interesse do usuário.
 
 ### Aplicação
-
+https://github.com/BrunoCarvalhoFeitosa/mobiauto-fipe/assets/46093815/14d1cf09-2e1d-40be-af2a-d9fc1f79dca7
 
 ### Feito com
 
