@@ -72,7 +72,7 @@ const ResultContent = (
     }
     
     return (
-        <div className="w-full min-h-[35dvh] md:min-h-[32dvh] xl:min-h-[50dvh] bg-green-200">
+        <div className="w-full pb-6 bg-green-200">
             <div className="py-2 pl-6">
                 <Link href="/" className="group relative flex items-end gap-x-2 outline-none w-[230px]">
                     <SearchIcon className="w-6 h-6" />
@@ -82,7 +82,7 @@ const ResultContent = (
                     <div className="absolute -bottom-1 w-[0] group-hover:w-full h-[2px] bg-black transition-all duration-500" />
                 </Link>
             </div>
-            <div className="py-12 mx-auto w-[90%] w-[50%]">
+            <div className="py-12 mx-auto w-[90%] xl:w-[50%]">
                 <h1 className="text-2xl font-bold text-center">
                     Tabela Fipe: Preço {brandName} {modelName} {yearName} 
                 </h1>
