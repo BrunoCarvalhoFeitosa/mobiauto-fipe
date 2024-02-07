@@ -61,7 +61,7 @@ export const SearchForm: React.FC = () => {
                     Consulte o valor de um veículo de forma gratuita.
                 </p>
             </div>
-            <div className="mx-auto py-10 px-8 w-[90%] md:w-[80%] xl:w-[50%] bg-white rounded-md shadow-md">
+            <div className="mx-auto py-10 px-8 w-[90%] md:w-[80%] xl:w-[600px] bg-white rounded-md shadow-md">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <FormField
