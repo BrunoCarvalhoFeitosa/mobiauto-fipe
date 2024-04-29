@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/BrunoCarvalhoFeitosa/mobiauto-fipe">
-    <img src="public\images\favicon.ico" alt="Logo" width="80" height="80" />
+    <img src="public\images\favicon.ico" alt="Logo" width="48" height="48" />
   </a>
 
   <p align="center">
